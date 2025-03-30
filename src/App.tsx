@@ -1,35 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { Navigation } from './components/Navigation';
+import { Overview } from './pages/Overview';
+import { CoatCheck } from './pages/CoatCheck';
+import { Tickets } from './pages/Tickets';
+import { Bar } from './pages/Bar';
+import { Marketing } from './pages/Marketing';
+import { SearchTrends } from './pages/SearchTrends';
+import { AIInsights } from './pages/AIInsights';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div className='flex justify-center'>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="min-h-screen bg-gray-950 text-white">
+      <Navigation />
+      <main className="ml-20 p-8">
+        <div className="max-w-[1600px] mx-auto">
+          <Routes>
+            <Route path="/" element={<Overview />} />
+            <Route path="/coat-check" element={<CoatCheck />} />
+            <Route path="/tickets" element={<Tickets />} />
+            <Route path="/bar" element={<Bar />} />
+            <Route path="/marketing" element={<Marketing />} />
+            <Route path="/search" element={<SearchTrends />} />
+            <Route path="/ai-insights" element={<AIInsights />} />
+          </Routes>
+        </div>
+      </main>
+    </div>
+  );
 }
 
-export default App
+export default App;
