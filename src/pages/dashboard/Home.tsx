@@ -31,7 +31,7 @@ const Home = () => {
   const lineChartConfig = {
     series: [
       {
-        name: "Saatlik Satış",
+        name: "Hourly Sales",
         data: lineAmounts,
       },
     ],
@@ -123,7 +123,7 @@ const Home = () => {
   const barChartConfig = {
     series: [
       {
-        name: "Ödeme",
+        name: "Payments",
         data: barAmounts,
       },
     ],
@@ -161,8 +161,8 @@ const Home = () => {
         },
       },
       categories: [
-        "Kredi Kartı",
-        "Nakit"
+        "Credit Cart",
+        "Cash"
       ],
     },
     yaxis: {
@@ -212,7 +212,7 @@ const Home = () => {
       enabled: true,
     },
     colors: ["#1e88e5", "#d81b60"],
-    labels: ["Dolu", "Boş"],
+    labels: ["Empty", "Full"],
     legend: {
       show: true,
     },
@@ -221,13 +221,13 @@ const Home = () => {
   return (
     <div className="w-full flex flex-col">
       <Daily stats={mockDailyData.stats} />
-      <Charts header="Günlük Satış Miktarları" height={300} type={ChartTypes.LINE} content="" chartConfig={lineChartConfig} />
+      <Charts header="Daily Sales Amounts" height={300} type={ChartTypes.LINE} content="" chartConfig={lineChartConfig} />
       <div className="flex w-full gap-4 mt-6">
         <div className="w-full h-auto">
-          <Charts chartConfig={barChartConfig} header="Bugün Yapılan Ödemeler" height={280} type={ChartTypes.BAR} />
+          <Charts chartConfig={barChartConfig} header="Payments Made Today" height={280} type={ChartTypes.BAR} />
         </div>
         <div className="w-full ">
-          <Charts chartConfig={pieChartConfig} header="Masa Yoğunluğu" height={280} type={ChartTypes.DONUT} />
+          <Charts chartConfig={pieChartConfig} header="Coat Check Eligibility" height={280} type={ChartTypes.DONUT} />
         </div>
       </div>
     </div>

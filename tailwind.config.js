@@ -6,6 +6,9 @@ module.exports = withMT({
   theme: {
     extend: {
       colors: {
+        nav:"#3c3a52",
+        sidebar:"#25233a",
+        onBar:"#44405f",
         fuchsia: {
           25: '#F4F2FF',
           50: '#EAE8FF',

@@ -17,7 +17,7 @@ interface DailyProps {
 
 const Daily: React.FC<DailyProps> = ({ stats }) => {
     return (
-        <div className='w-full flex items-start justify-between gap-4 p-4'>
+        <div className='w-full items-start justify-between gap-4 p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4'>
             <Card className='w-full rounded-md lg:h-36 flex bg-white'>
                 <CardBody className='w-full flex flex-col'>
                     <div className='flex justify-between'>
@@ -25,8 +25,8 @@ const Daily: React.FC<DailyProps> = ({ stats }) => {
                             <HiFire className='text-white text-4xl' />
                         </div>
                         <div>
-                            <Typography className='font-serif font-semibold' variant='small'> Bugünkü toplam satış tutarı </Typography>
-                            <Typography className='font-serif text-end' variant='h4'> ₺{stats.totalSales.toFixed(2)} </Typography>
+                            <Typography className='font-serif font-semibold' variant='small'> Total sales amount today </Typography>
+                            <Typography className='font-serif text-end' variant='h4'> €{stats.totalSales.toFixed(2)} </Typography>
                         </div>
                     </div>
                     <div className='p-2'>
@@ -34,7 +34,7 @@ const Daily: React.FC<DailyProps> = ({ stats }) => {
                     </div>
                     <div className='flex justify-end'>
                         <Link to={'/'} className='hover:underline hover:underline-offset-2'>
-                            <Typography variant='small' className='font-inter'> Gün Sonu Raporu </Typography>
+                            <Typography variant='small' className='font-inter'> End of Day Report </Typography>
                         </Link>
                     </div>
                 </CardBody>
@@ -46,7 +46,7 @@ const Daily: React.FC<DailyProps> = ({ stats }) => {
                             <IoPersonOutline className='text-white text-4xl' />
                         </div>
                         <div>
-                            <Typography className='font-serif font-semibold' variant='small'> Bugün ağırlanan misafir sayısı </Typography>
+                            <Typography className='font-serif font-semibold' variant='small'> Number of people hosted today </Typography>
                             <Typography className='font-serif text-end' variant='h4'> {stats.totalOpenedTables} </Typography>
                         </div>
                     </div>
@@ -62,7 +62,7 @@ const Daily: React.FC<DailyProps> = ({ stats }) => {
                             <FaChartSimple className='text-white text-4xl' />
                         </div>
                         <div>
-                            <Typography className='font-serif font-semibold' variant='small'> Bugünkü açık satış tutarı </Typography>
+                            <Typography className='font-serif font-semibold' variant='small'> Today's open sale amount </Typography>
                             <Typography className='font-serif text-end' variant='h4'> ₺{stats.totalOrders.toFixed(2)} </Typography>
                         </div>
                     </div>
@@ -78,8 +78,8 @@ const Daily: React.FC<DailyProps> = ({ stats }) => {
                             <CgArrowsExchangeAltV className='text-white text-4xl' />
                         </div>
                         <div>
-                            <Typography className='font-serif font-semibold' variant='small'> Bugünkü toplam gider tutarı </Typography>
-                            <Typography className='font-serif text-end' variant='h4'> ₺{stats.totalExpenses.toFixed(2)} </Typography>
+                            <Typography className='font-serif font-semibold' variant='small'> Total expenditure amount today </Typography>
+                            <Typography className='font-serif text-end' variant='h4'> €{stats.totalExpenses.toFixed(2)} </Typography>
                         </div>
                     </div>
                     <div className='p-2'>

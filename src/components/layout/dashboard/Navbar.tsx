@@ -22,7 +22,7 @@ const Navbar = () => {
   const user = users[0]
   return (
     <MtNavbar
-      className={` transition-all sticky top-0 z-40 py-3 bg-[#3c3a52] rounded-xl`}
+      className={` transition-all sticky top-0 z-40 py-3 bg-nav rounded-xl`}
       fullWidth
     >
       <div className="flex flex-col-reverse justify-between gap-6 md:flex-row md:items-center">
@@ -88,7 +88,7 @@ const Navbar = () => {
                 <MenuHandler>
                   <Button
                     variant="filled"
-                    className="flex items-center capitalize gap-2 bg-[#44405f] rounded-2xl"
+                    className="flex items-center capitalize gap-2 bg-onBar rounded-2xl"
                   >
                     <IoPersonOutline className='text-xl' />
                     <Typography className='font-inter font-semibold' variant='small'> {user.fullName} </Typography>
