@@ -23,7 +23,7 @@ export function Sidenav() {
   };
 
   return (
-    <aside className="fixed inset-0 z-50 my-4 ml-4 h-[calc(100vh-32px)] w-72 rounded-md transition-transform duration-300 xl:translate-x-0 border border-gray-600/50">
+    <aside className="fixed inset-0 z-50 my-4 ml-4 h-[calc(100vh-32px)] w-72 rounded-md transition-transform duration-300 xl:translate-x-0 bg-[#25233a]">
       <div className="relative">
         <Link to={"/"} className="flex flex-col justify-center items-start gap-2 lg:mt-8 lg:ml-8 ">
           <div className="flex gap-2">
@@ -32,15 +32,15 @@ export function Sidenav() {
               alt="logo"
               className="w-8 rounded-full"
             />
-            <Typography variant="h5" className="text-start font-serif lg:mt-1">
-              Orderly
+            <Typography variant="h5" className="text-start text-gray-200 font-onest lg:mt-1">
+              Nightowl
             </Typography>
           </div>
-          <Typography variant="h5" className="text-gray-700 font-serif lg:mt-2"> Fibonacci </Typography>
+          <Typography variant="h5" className="text-gray-50 font-onest lg:mt-2"> Club Name </Typography>
         </Link>
       </div>
       <div className="px-4 mt-2">
-        <Divider color="gray-400" height="2" />
+        <Divider color="gray-50" height="2" />
       </div>
       <div className="mt-2 mx-2">
         {routes.map(({ layout, pages }, key) => (
@@ -50,22 +50,14 @@ export function Sidenav() {
                 {page.subPaths ? (
                   <div>
                     <Button
-                      variant={
-                        page.path && currentPath === page.path.split("/")[1]
-                          ? "gradient"
-                          : "text"
-                      }
-                      color={
-                        page.path && currentPath === page.path.split("/")[1]
-                          ? "green"
-                          : "black"
-                      }
-                      className="flex items-center gap-4 px-4 capitalize"
+                      className={`flex items-center gap-4 capitalize ${page.path && currentPath === page.path.split("/")[1]
+                          ? "text-white"
+                          : "text-gray-200 bg-transparent"}`}
                       fullWidth
                       onClick={() => toggleMenu(page.name)}
                     >
                       <div className="text-xl">{page.icon}</div>
-                      <Typography className="text-sm font-serif font-semibold ">
+                      <Typography className="text-sm font-onest font-semibold ">
                         {page.name}
                       </Typography>
                       <div
@@ -82,14 +74,12 @@ export function Sidenav() {
                             <NavLink to={`/${layout}${subPath.path}`}>
                               {({ isActive }) => (
                                 <Button
-                                  variant={isActive ? "gradient" : "text"}
-                                  color={isActive ? "green" : "black"}
-                                  className="flex items-center gap-4 capitalize"
+                                  className={`flex items-center gap-4 capitalize ${isActive ? "text-white bg-[#44405f]" : "text-gray-200 bg-transparent"}`}
                                   fullWidth
                                 >
                                   <div className="text-xl">{subPath.icon}</div>
 
-                                  <Typography className="font-serif font-semibold text-sm">
+                                  <Typography className="font-onest font-semibold text-sm">
                                     {subPath.name}
                                   </Typography>
                                 </Button>
@@ -120,21 +110,8 @@ export function Sidenav() {
                           <NavLink to={`/${layout}${page.path}`}>
                             {() => (
                               <Button
-                                variant={
-                                  page.path &&
-                                    currentPath === page.path.split("/")[1] &&
-                                    fullPath.pathname.startsWith(`/${layout}`)
-                                    ? "gradient"
-                                    : "text"
-                                }
-                                color={
-                                  page.path &&
-                                    currentPath === page.path.split("/")[1] &&
-                                    fullPath.pathname.startsWith(`/${layout}`)
-                                    ? "green"
-                                    : "black"
-                                }
-                                className={`flex items-center gap-4 px-4 capitalize`}
+                                className={`flex items-center gap-4 capitalize ${currentPath === page.path.split("/")[1] &&
+                                    fullPath.pathname.startsWith(`/${layout}`) ? "text-white bg-[#44405f]" : "text-gray-200 bg-transparent"}`}
                                 fullWidth
                               >
                                 <div className="text-xl">{page.icon}</div>

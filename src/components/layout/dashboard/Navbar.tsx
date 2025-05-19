@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Avatar, Breadcrumbs, Button, IconButton, Input, Menu, MenuHandler, MenuItem, MenuList, Navbar as MtNavbar, Typography } from '@material-tailwind/react'
+import { Avatar, Breadcrumbs, Button, IconButton, Menu, MenuHandler, MenuItem, MenuList, Navbar as MtNavbar, Typography } from '@material-tailwind/react'
 import { Link, useLocation } from 'react-router-dom'
 import routes from '../../../routes';
 import { IoPersonOutline, IoShareSocial } from 'react-icons/io5';
@@ -22,43 +22,37 @@ const Navbar = () => {
   const user = users[0]
   return (
     <MtNavbar
-      className={` transition-all sticky top-0 z-40 py-3 border-b bg-white border-gray-800/50`}
-      color='transparent'
+      className={` transition-all sticky top-0 z-40 py-3 bg-[#3c3a52] rounded-xl`}
       fullWidth
     >
       <div className="flex flex-col-reverse justify-between gap-6 md:flex-row md:items-center">
         <div className="capitalize">
           <Breadcrumbs
-            className={`bg-transparent p-0 transition-all `}
+            className={`bg-transparent p-0 transition-all text-white`}
           >
             <Link to={`/${layout}`}>
               <Typography
                 variant="small"
-                color="blue-gray"
-                className="font-normal opacity-50 transition-all hover:text-blue-500 hover:opacity-100"
+                className="font-normal text-white opacity-100 transition-all"
               >
                 {route?.title}
               </Typography>
             </Link>
             <Typography
               variant="small"
-              color="blue-gray"
-              className="font-normal"
+              className="font-normal text-white"
             >
               {pageName?.name}
             </Typography>
           </Breadcrumbs>
-          <Typography variant="h6" color="blue-gray">
-            {pageName?.name}
-          </Typography>
         </div>
         <div className="flex items-center gap-8">
           <div className="mr-auto md:w-56">
-            <Input label="Search" crossOrigin={undefined} />
+            <input type="search" name="search" id="search" className='bg-white rounded-lg px-4 py-1 w-full text-gray-900' placeholder='Search...' />
           </div>
           <Menu>
             <MenuHandler>
-              <IconButton variant="text" color="blue-gray">
+              <IconButton variant="text" className='text-white'>
                 bell
               </IconButton>
             </MenuHandler>
@@ -68,7 +62,6 @@ const Navbar = () => {
                   src="https://demos.creative-tim.com/material-dashboard/assets/img/team-2.jpg"
                   alt="item-1"
                   size="sm"
-                  variant="circular"
                 />
                 <div>
                   <Typography
@@ -95,7 +88,7 @@ const Navbar = () => {
                 <MenuHandler>
                   <Button
                     variant="filled"
-                    className="flex items-center capitalize gap-2 bg-green-600/70 rounded-2xl"
+                    className="flex items-center capitalize gap-2 bg-[#44405f] rounded-2xl"
                   >
                     <IoPersonOutline className='text-xl' />
                     <Typography className='font-inter font-semibold' variant='small'> {user.fullName} </Typography>
@@ -106,13 +99,13 @@ const Navbar = () => {
                   <MenuItem className='mt-1'>
                     <Link to={`/dashboard/profile`} className='flex gap-2 items-center'>
                       <IoPersonOutline className='text-lg' />
-                      <Typography className='font-inter'> Profil </Typography>
+                      <Typography className='font-inter'> Profile </Typography>
                     </Link>
                   </MenuItem>
                   <MenuItem>
                     <Link to={`/dashboard/account`} className='flex gap-2 items-center'>
                       <MdOutlineManageAccounts className='text-lg' />
-                      <Typography className='font-inter'> Hesap Bilgileri </Typography>
+                      <Typography className='font-inter'> Account Settings </Typography>
                     </Link>
                   </MenuItem>
                   <div>
@@ -123,7 +116,7 @@ const Navbar = () => {
                       <MenuHandler>
                         <div className='flex gap-2 items-center'>
                           <IoShareSocial />
-                          <Typography> Sosyal Medya </Typography>
+                          <Typography> Social Media </Typography>
                         </div>
                       </MenuHandler>
                       <MenuList>
@@ -147,7 +140,7 @@ const Navbar = () => {
                   </div>
                   <MenuItem className='flex items-center gap-2'>
                     <BiLogOut className='text-lg' />
-                    <Typography className='font-inter'> Çıkış </Typography>
+                    <Typography className='font-inter'> Logout </Typography>
                   </MenuItem>
                 </MenuList>
               </Menu>
