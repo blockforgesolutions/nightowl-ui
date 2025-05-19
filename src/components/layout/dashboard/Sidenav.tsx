@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button, Typography } from "@material-tailwind/react";
 import { Link, NavLink, useLocation } from "react-router-dom";
+import { ChevronLeft } from "lucide-react";
 import routes from "../../../routes";
 import Divider from "../../Divider";
 
@@ -9,11 +10,31 @@ interface OpenMenuState {
   [key: string]: boolean;
 }
 
-export function Sidenav() {
+interface SidenavProps {
+  collapsed: boolean;
+  toggleSidebar: () => void;
+}
+
+export function Sidenav({ collapsed, toggleSidebar }: SidenavProps) {
   const fullPath = useLocation();
   const path = fullPath.pathname?.split("/dashboard/");
   const currentPath = path[1];
   const [openMenu, setOpenMenu] = useState<OpenMenuState>({});
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Ekran boyutunu izle
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+    };
+  }, []);
 
   const toggleMenu = (menuName: any) => {
     setOpenMenu((prev) => ({
@@ -23,46 +44,83 @@ export function Sidenav() {
   };
 
   return (
-    <aside className="fixed inset-0 z-50 my-4 ml-4 h-[calc(100vh-32px)] w-72 rounded-md transition-transform duration-300 xl:translate-x-0 bg-[#25233a]">
+    <aside 
+      className={`fixed z-50 my-4 ml-4 h-[calc(100vh-32px)] rounded-md transition-all duration-300 bg-sidebar ${
+        collapsed ? "w-16" : "w-72"
+      } ${
+        isMobile 
+          ? collapsed 
+            ? "translate-x-0" 
+            : "-translate-x-full" 
+          : "translate-x-0"
+      }`}
+    >
       <div className="relative">
-        <Link to={"/"} className="flex flex-col justify-center items-start gap-2 lg:mt-8 lg:ml-8 ">
-          <div className="flex gap-2">
-            <img
-              src="https://pbs.twimg.com/profile_images/1610066785025523713/2iij3ydV_400x400.jpg"
-              alt="logo"
-              className="w-8 rounded-full"
-            />
-            <Typography variant="h5" className="text-start text-gray-200 font-onest lg:mt-1">
-              Nightowl
-            </Typography>
-          </div>
-          <Typography variant="h5" className="text-gray-50 font-onest lg:mt-2"> Club Name </Typography>
-        </Link>
+        <div className="flex items-center justify-between px-4 lg:mt-8">
+          {!collapsed && (
+            <Link to={"/"} className="flex items-center gap-2">
+              <img
+                src="https://thumbs.dreamstime.com/b/night-owl-logo-art-vector-design-59009450.jpg"
+                alt="logo"
+                className="w-10 rounded-3xl"
+              />
+              <Typography variant="h5" className="text-gray-50 font-onest">
+                Club Name
+              </Typography>
+            </Link>
+          )}
+          
+          {collapsed && (
+            <Link to={"/"} className="flex justify-center w-full mt-4">
+              <img
+                src="https://thumbs.dreamstime.com/b/night-owl-logo-art-vector-design-59009450.jpg"
+                alt="logo"
+                className="w-10 rounded-3xl"
+              />
+            </Link>
+          )}
+          
+          <button 
+            onClick={toggleSidebar}
+            className={`flex items-center justify-center p-2 rounded-full bg-gray-700 hover:bg-gray-600 text-white transition-all ${
+              collapsed ? "mx-auto mt-4" : ""
+            }`}
+          >
+            <ChevronLeft className={`h-5 w-5 transition-transform ${collapsed ? "rotate-180" : ""}`} />
+          </button>
+        </div>
       </div>
-      <div className="px-4 mt-2">
-        <Divider color="gray-50" height="2" />
-      </div>
-      <div className="mt-2 mx-2">
+      
+      {!collapsed && (
+        <div className="px-4 mt-2">
+          <Divider color="gray-50" height="2" />
+        </div>
+      )}
+      
+      <div className={`mt-4 ${collapsed ? "mx-1" : "mx-2"}`}>
         {routes.map(({ layout, pages }, key) => (
-          <ul key={key} className="mb-4 flex flex-col ">
+          <ul key={key} className="mb-4 flex flex-col">
             {(layout === 'dashboard') && pages.map((page: any) => (
               <li key={page.name}>
-                {page.subPaths ? (
+                {page.subPaths && !collapsed ? (
                   <div>
                     <Button
-                      className={`flex items-center gap-4 capitalize ${page.path && currentPath === page.path.split("/")[1]
+                      className={`flex items-center gap-4 capitalize ${
+                        page.path && currentPath === page.path.split("/")[1]
                           ? "text-white"
-                          : "text-gray-200 bg-transparent"}`}
+                          : "text-gray-200 bg-transparent"
+                      }`}
                       fullWidth
                       onClick={() => toggleMenu(page.name)}
                     >
                       <div className="text-xl">{page.icon}</div>
-                      <Typography className="text-sm font-onest font-semibold ">
+                      <Typography className="text-sm font-onest font-semibold">
                         {page.name}
                       </Typography>
                       <div
-                        className={`ml-auto transition-transform ${openMenu[page.name] ? "rotate-180" : "rotate-0"
-                          }`}
+                        className={`ml-auto transition-transform ${
+                          openMenu[page.name] ? "rotate-180" : "rotate-0"
+                        }`}
                       >
                         ▼
                       </div>
@@ -74,11 +132,14 @@ export function Sidenav() {
                             <NavLink to={`/${layout}${subPath.path}`}>
                               {({ isActive }) => (
                                 <Button
-                                  className={`flex items-center gap-4 capitalize ${isActive ? "text-white bg-[#44405f]" : "text-gray-200 bg-transparent"}`}
+                                  className={`flex items-center gap-4 capitalize ${
+                                    isActive 
+                                      ? "text-white bg-onBar" 
+                                      : "text-gray-200 bg-transparent"
+                                  }`}
                                   fullWidth
                                 >
                                   <div className="text-xl">{subPath.icon}</div>
-
                                   <Typography className="font-onest font-semibold text-sm">
                                     {subPath.name}
                                   </Typography>
@@ -93,31 +154,47 @@ export function Sidenav() {
                 ) : (
                   <div>
                     {page.isAnotherLayout ? (
-                      <div className="mt-3">
-                        <div className="p-2 mt-2">
-                          <hr />
-                        </div>
-                        <Link to={page.path} className={`flex mt-2 items-center gap-4 px-4 capitalize`}>
-                          <div className="text-xl">{page.icon}</div>
-                          <Typography className="text-sm font-serif font-semibold">
-                            {page.name}
-                          </Typography>
+                      <div className={`mt-3 ${collapsed ? "text-center" : ""}`}>
+                        {!collapsed && (
+                          <div className="p-2 mt-2">
+                            <hr />
+                          </div>
+                        )}
+                        <Link 
+                          to={page.path} 
+                          className={`flex mt-2 items-center ${collapsed ? "justify-center" : "gap-4 px-4"} capitalize`}
+                          title={collapsed ? page.name : ""}
+                        >
+                          <div className="text-xl text-gray-200">{page.icon}</div>
+                          {!collapsed && (
+                            <Typography className="text-sm font-serif font-semibold">
+                              {page.name}
+                            </Typography>
+                          )}
                         </Link>
                       </div>
                     ) : (
                       <div>
                         {page.onSidenav && (
                           <NavLink to={`/${layout}${page.path}`}>
-                            {() => (
+                            {({ isActive }) => (
                               <Button
-                                className={`flex items-center gap-4 capitalize ${currentPath === page.path.split("/")[1] &&
-                                    fullPath.pathname.startsWith(`/${layout}`) ? "text-white bg-[#44405f]" : "text-gray-200 bg-transparent"}`}
+                                className={`flex items-center ${
+                                  collapsed ? "justify-center p-2" : "gap-4"
+                                } capitalize ${
+                                  isActive 
+                                    ? "text-white bg-[#44405f]" 
+                                    : "text-gray-200 bg-transparent"
+                                }`}
                                 fullWidth
+                                title={collapsed ? page.name : ""}
                               >
                                 <div className="text-xl">{page.icon}</div>
-                                <Typography className="text-sm font-serif font-semibold">
-                                  {page.name}
-                                </Typography>
+                                {!collapsed && (
+                                  <Typography className="text-sm font-serif font-semibold">
+                                    {page.name}
+                                  </Typography>
+                                )}
                               </Button>
                             )}
                           </NavLink>
@@ -131,7 +208,7 @@ export function Sidenav() {
           </ul>
         ))}
       </div>
-    </aside >
+    </aside>
   );
 }
 
