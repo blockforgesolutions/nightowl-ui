@@ -9,5 +9,7 @@ export interface Order {
     areaId: number,
     tableId: string,
     items: Items[],
-    status: string
+    status: string,
+    user:string,
+    note: string
 }

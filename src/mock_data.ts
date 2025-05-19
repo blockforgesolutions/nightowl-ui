@@ -267,10 +267,12 @@ export const orders = [
         id: 1,
         areaId: 1,
         tableId: "s1",
+        user: "John Doe",
+        note: "No ices",
         items: [
             {
                 productId: 1,
-                quantity: 2
+                quantity: 2,
             },
             {
                 productId: 2,
@@ -283,6 +285,8 @@ export const orders = [
         id: 2,
         areaId: 2,
         tableId: "b4",
+        user: "John Doe",
+        note: "No ices",
         items: [
             {
                 productId: 4,
