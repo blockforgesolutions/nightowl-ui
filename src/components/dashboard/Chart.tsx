@@ -130,7 +130,7 @@ const Charts: React.FC<ChartsProps> = ({ header, content, chartConfig, type, hei
                 className="flex flex-col gap-4 rounded-none md:flex-row md:items-center"
             >
                 <div>
-                    <Typography variant='small' className='font-inter font-semibold'>
+                    <Typography variant='small' className='font-onest font-semibold'>
                         {header}
                     </Typography>
                     <Typography

@@ -31,7 +31,7 @@ const Area = () => {
                 >
                   <Typography
                     variant='small'
-                    className="font-inter font-semibold tracking-wider"
+                    className="font-onest font-semibold tracking-wider"
                   >
                     {area.name}
                   </Typography>
@@ -65,10 +65,10 @@ const Area = () => {
                             <CardBody className='flex flex-col'>
                               <div className='flex px-1 justify-between items-center'>
                                 <div className='flex flex-col -space-y-0.5'>
-                                  <Typography className='text-start font-inter text-black' variant='small'>
+                                  <Typography className='text-start font-onest text-black' variant='small'>
                                     {table.name}
                                   </Typography>
-                                  <Typography className={`font-inter ${orderForTable ? "flex" : "hidden"} text-[12px]`}> User Name </Typography>
+                                  <Typography className={`font-onest ${orderForTable ? "flex" : "hidden"} text-[12px]`}> User Name </Typography>
                                 </div>
                                 <div className='flex justify-end'>
                                   <IconButton variant='text'>
@@ -77,10 +77,10 @@ const Area = () => {
                                 </div>
                               </div>
                               <div className={`lg:mt-4 justify-center items-center ${orderForTable ? "flex" : "hidden"}`}>
-                                <Typography className='text-black font-inter font-bold text-lg'> ₺{totalPrice.toFixed(2)} </Typography>
+                                <Typography className='text-black font-onest font-bold text-lg'> ₺{totalPrice.toFixed(2)} </Typography>
                               </div>
                               <div className={`${orderForTable ? "flex" : "hidden"}`}>
-                                <Typography variant='small' className='font-inter text-black'> 2s 32dk </Typography>
+                                <Typography variant='small' className='font-onest text-black'> 2s 32dk </Typography>
                               </div>
                             </CardBody>
                           </Link>
@@ -93,7 +93,7 @@ const Area = () => {
                           >
                             <CardBody className='flex flex-col justify-center items-center'>
                               <div className='flex justify-center items-center'>
-                                <Typography className='text-center font-inter'>
+                                <Typography className='text-center font-onest'>
                                   {table.name}
                                 </Typography>
                               </div>

@@ -91,21 +91,21 @@ const Navbar = () => {
                     className="flex items-center capitalize gap-2 bg-onBar rounded-2xl"
                   >
                     <IoPersonOutline className='text-xl' />
-                    <Typography className='font-inter font-semibold' variant='small'> {user.fullName} </Typography>
+                    <Typography className='font-onest font-semibold' variant='small'> {user.fullName} </Typography>
                   </Button>
                 </MenuHandler>
                 <MenuList className='px-6 rounded-sm'>
-                  <Typography className='font-inter font-semibold' variant='small'> {user.fullName} </Typography>
+                  <Typography className='font-onest font-semibold' variant='small'> {user.fullName} </Typography>
                   <MenuItem className='mt-1'>
                     <Link to={`/dashboard/profile`} className='flex gap-2 items-center'>
                       <IoPersonOutline className='text-lg' />
-                      <Typography className='font-inter'> Profile </Typography>
+                      <Typography className='font-onest'> Profile </Typography>
                     </Link>
                   </MenuItem>
                   <MenuItem>
                     <Link to={`/dashboard/account`} className='flex gap-2 items-center'>
                       <MdOutlineManageAccounts className='text-lg' />
-                      <Typography className='font-inter'> Account Settings </Typography>
+                      <Typography className='font-onest'> Account Settings </Typography>
                     </Link>
                   </MenuItem>
                   <div>
@@ -123,13 +123,13 @@ const Navbar = () => {
                         <MenuItem>
                           <Link to={`/`} className='flex gap-2 items-center'>
                             <MdOutlineManageAccounts className='text-lg' />
-                            <Typography className='font-inter'> Linkedin </Typography>
+                            <Typography className='font-onest'> Linkedin </Typography>
                           </Link>
                         </MenuItem>
                         <MenuItem>
                           <Link to={`/`} className='flex gap-2 items-center'>
                             <MdOutlineManageAccounts className='text-lg' />
-                            <Typography className='font-inter'> Instagram </Typography>
+                            <Typography className='font-onest'> Instagram </Typography>
                           </Link>
                         </MenuItem>
                       </MenuList>
@@ -140,7 +140,7 @@ const Navbar = () => {
                   </div>
                   <MenuItem className='flex items-center gap-2'>
                     <BiLogOut className='text-lg' />
-                    <Typography className='font-inter'> Logout </Typography>
+                    <Typography className='font-onest'> Logout </Typography>
                   </MenuItem>
                 </MenuList>
               </Menu>

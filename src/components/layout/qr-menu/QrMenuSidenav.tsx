@@ -15,7 +15,7 @@ const QrMenuSidenav = () => {
                 <div className="w-full flex gap-4 p-4 items-center ">
                     <Link to={'/dashboard/orders'} className='flex items-center gap-2'>
                         <FaAngleLeft className="text-xl text-gray-800" />
-                        <Typography className="font-inter font-semibold text-gray-800" variant="h6"> Ana Sayfa </Typography>
+                        <Typography className="font-onest font-semibold text-gray-800" variant="h6"> Ana Sayfa </Typography>
                     </Link>
                 </div>
             </div>

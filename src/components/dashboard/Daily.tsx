@@ -34,7 +34,7 @@ const Daily: React.FC<DailyProps> = ({ stats }) => {
                     </div>
                     <div className='flex justify-end'>
                         <Link to={'/'} className='hover:underline hover:underline-offset-2'>
-                            <Typography variant='small' className='font-inter'> End of Day Report </Typography>
+                            <Typography variant='small' className='font-onest'> End of Day Report </Typography>
                         </Link>
                     </div>
                 </CardBody>

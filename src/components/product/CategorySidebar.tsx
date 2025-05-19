@@ -18,7 +18,7 @@ const CategorySidebar: React.FC<CategorySidebarProps> = ({ categories, setCurren
             <div className="w-full p-1 flex justify-between items-center">
                 <Button className="flex gap-1 capitalize items-center" variant="text">
                     <TbCategoryPlus className="text-xl" />
-                    <Typography variant="h6" className="font-inter"> Kategori Ekle </Typography>
+                    <Typography variant="h6" className="font-onest"> Kategori Ekle </Typography>
                 </Button>
                 <div className="lg:mr-2">
                     <Menu>
@@ -51,7 +51,7 @@ const CategorySidebar: React.FC<CategorySidebarProps> = ({ categories, setCurren
                     >
                         <div className="flex gap-1">
                             <BiCategory style={{ color: category.color }} className="text-2xl" />
-                            <Typography className="font-inter font-semibold" variant="small"> {category.title} </Typography>
+                            <Typography className="font-onest font-semibold" variant="small"> {category.title} </Typography>
                         </div>
                         <div>
                             <Menu>

@@ -5,7 +5,7 @@ import { useState } from "react";
 import { User } from "../../../types/user";
 import PersonDetail from "../../../components/person/PersonDetail";
 
-const TABLE_HEAD = ["No", "Ad Soyad", "Email", "Telefon Numarası", "Rol"];
+const TABLE_HEAD = ["No", "Full Name", "Email", "Phone Number", "Role"];
 
 const Person = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -20,7 +20,7 @@ const Person = () => {
   const handleNewUserOpen = () => setNewUserModalOpen(!newUserModalOpen);
 
   return (
-    <div className="w-full h-screen flex justify-center ">
+    <div className="w-full h-screen flex justify-center mt-2">
       <div className=" lg:w-11/12 border rounded-md border-gray-200 bg-white p-12 flex flex-col">
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-4">
@@ -28,8 +28,8 @@ const Person = () => {
               <IoPersonOutline className="text-4xl text-white" />
             </div>
             <div className="flex flex-col">
-              <Typography variant="h6" className="font-inter font-semibold"> Kullanıcılar </Typography>
-              <Typography variant="small" className="font-inter"> Kullanıcı Sayısı : <strong> {users.length} </strong> </Typography>
+              <Typography variant="h6" className="font-onest font-semibold"> Users </Typography>
+              <Typography variant="small" className="font-onest"> Total Users : <strong> {users.length} </strong> </Typography>
             </div>
           </div>
           <div className="">
@@ -37,7 +37,7 @@ const Person = () => {
               onClick={() => handleNewUserOpen()}
               variant="filled" fullWidth className="flex items-center capitalize bg-green-600 to-green-300 gap-2 shadow-none rounded-sm">
               <IoAddOutline className="text-2xl" />
-              <Typography className="font-inter font-semibold"> Ekle </Typography>
+              <Typography className="font-onest font-semibold"> Add </Typography>
             </Button>
           </div>
         </div>

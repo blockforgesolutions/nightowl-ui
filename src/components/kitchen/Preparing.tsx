@@ -27,13 +27,13 @@ const Preparing: React.FC<PreparingProps> = ({ orders }) => {
                                                 <MdChair />
                                             </div>
                                             <div className="flex flex-col">
-                                                <Typography className="font-inter font-semibold" variant='small'> username </Typography>
-                                                <Typography className="font-inter" variant='small'> {area?.name} / {table?.name} </Typography>
+                                                <Typography className="font-onest font-semibold" variant='small'> username </Typography>
+                                                <Typography className="font-onest" variant='small'> {area?.name} / {table?.name} </Typography>
                                             </div>
                                         </div>
                                         <div className="">
                                             <Button className="flex gap-2 items-center border h-10 capitalize rounded-md shadow-none bg-gray-200 text-gray-800" variant="filled">
-                                                <Typography className="font-inter font-semibold" variant='small'> Tümü Hazır </Typography>
+                                                <Typography className="font-onest font-semibold" variant='small'> Tümü Hazır </Typography>
                                             </Button>
                                         </div>
                                     </div>
@@ -50,17 +50,17 @@ const Preparing: React.FC<PreparingProps> = ({ orders }) => {
                                                             <div className="flex flex-col">
                                                                 <Typography variant="small" className="text-inter font-semibold text-red-600"> Hazırlanıyor </Typography>
                                                                 <div className="p-2 mt-1 rounded-sm bg-red-600 flex justify-center">
-                                                                    <Typography className="font-inter font-semibold text-white" variant="small"> Timer </Typography>
+                                                                    <Typography className="font-onest font-semibold text-white" variant="small"> Timer </Typography>
                                                                 </div>
                                                             </div>
                                                             <div className="flex flex-col mt-5">
-                                                                <Typography className="text-[12px] font-inter"> username </Typography>
-                                                                <Typography className="font-inter semibold"> {item.quantity} {product?.unit} - {product?.name} </Typography>
+                                                                <Typography className="text-[12px] font-onest"> username </Typography>
+                                                                <Typography className="font-onest semibold"> {item.quantity} {product?.unit} - {product?.name} </Typography>
                                                             </div>
                                                         </div>
                                                         <div className="mt-5">
                                                             <Button className="flex gap-2 items-center border h-10 capitalize rounded-md shadow-none bg-gray-200 text-gray-800" variant="filled">
-                                                                <Typography className="font-inter font-semibold" variant='small'> Hazır </Typography>
+                                                                <Typography className="font-onest font-semibold" variant='small'> Hazır </Typography>
                                                             </Button>
                                                         </div>
                                                     </div>
@@ -78,7 +78,7 @@ const Preparing: React.FC<PreparingProps> = ({ orders }) => {
                 </div>
             ) : (
                 <div className="flex justify-center items-center">
-                    <Typography className="font-inter font-semibold" variant="h5"> Hazırlanan sipariş bulunmuyor </Typography>
+                    <Typography className="font-onest font-semibold" variant="h5"> Hazırlanan sipariş bulunmuyor </Typography>
                 </div>
             )}
         </div>

@@ -33,7 +33,7 @@ const TableList: React.FC<TableListProps> = ({ areas }) => {
                 >
                   <Typography
                     variant='small'
-                    className="font-inter font-semibold tracking-wider"
+                    className="font-onest font-semibold tracking-wider"
                   >
                     {area.name}
                   </Typography>
@@ -61,7 +61,7 @@ const TableList: React.FC<TableListProps> = ({ areas }) => {
                           <MdEdit className='text-xl text-green-600' />
                         </IconButton>
                       </div>
-                      <Typography className='text-center font-inter'>
+                      <Typography className='text-center font-onest'>
                         {table.name}
                       </Typography>
                     </CardBody>

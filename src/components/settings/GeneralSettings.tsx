@@ -40,7 +40,7 @@ const GeneralSettings: React.FC<GeneralSettingsProps> = ({ company }) => {
         <Input type="text" variant="standard" value={company ? company.changeTableTime : ""} label={"Masa renk değiştirme süresi"} crossOrigin={undefined} />
       </div>
       <div className="mt-6">
-          <Button variant="text" className="capitalize font-inter font-semibold text-gray-800"> Cafe Konumunu Düzenle </Button>
+          <Button variant="text" className="capitalize font-onest font-semibold text-gray-800"> Cafe Konumunu Düzenle </Button>
       </div>
     </div>
   )

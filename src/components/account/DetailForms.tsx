@@ -28,7 +28,7 @@ const PacketDetails: React.FC<PacketInvoiceDetailsProps> = ({ isOpen, handleOpen
     return (
         <Dialog open={isOpen} handler={handleOpen} >
             <DialogHeader>Paket Planını Düzenle</DialogHeader>
-            <DialogHeader className="text-md font-normal font-inter">Geçiş Yapabileceğiniz Paketler</DialogHeader>
+            <DialogHeader className="text-md font-normal font-onest">Geçiş Yapabileceğiniz Paketler</DialogHeader>
             <DialogBody className="p-6">
                 {PACKETS.map((packet, index) => {
                     return (
@@ -36,13 +36,13 @@ const PacketDetails: React.FC<PacketInvoiceDetailsProps> = ({ isOpen, handleOpen
                             <div className="flex gap-2 items-center">
                                 <Checkbox crossOrigin={undefined} />
                                 <div className="flex flex-col">
-                                    <Typography variant="h6" className="font-inter font-semibold"> {packet.packetName} </Typography>
-                                    <Typography variant="small" className="font-inter"> Kullanıcı Sayısı: {packet.maxUser} </Typography>
+                                    <Typography variant="h6" className="font-onest font-semibold"> {packet.packetName} </Typography>
+                                    <Typography variant="small" className="font-onest"> Kullanıcı Sayısı: {packet.maxUser} </Typography>
                                 </div>
                             </div>
                             <div>
-                                <Typography variant="small" className="font-inter"> Ödenecek Tutar </Typography>
-                                <Typography variant="h6" className="font-inter font-semibold"> ₺{packet.amount.toFixed(2)} / ay </Typography>
+                                <Typography variant="small" className="font-onest"> Ödenecek Tutar </Typography>
+                                <Typography variant="h6" className="font-onest font-semibold"> ₺{packet.amount.toFixed(2)} / ay </Typography>
                             </div>
                         </div>
                     )

@@ -7,7 +7,7 @@ const AccountSettings = () => {
       <Card className='w-1/2 flex flex-col bg-white p-4 justify-center rounded-sm'>
         <Header />
         <div className='flex flex-col px-8 mt-2 lg:space-y-2'>
-          <Typography variant="h6" className="font-inter font-semibold"> Üyelik İptali </Typography>
+          <Typography variant="h6" className="font-onest font-semibold"> Üyelik İptali </Typography>
           <div className="p-4">
             <hr />
           </div>
@@ -18,7 +18,7 @@ const AccountSettings = () => {
         </div>
         <div className='flex justify-end mt-6 mr-6'>
           <Button className='px-8 py-2 capitalize bg-red-600 rounded-md'>
-            <Typography variant='h6' className='font-inter text-white'> Üyeliği İptal Et </Typography>
+            <Typography variant='h6' className='font-onest text-white'> Üyeliği İptal Et </Typography>
           </Button>
         </div>
       </Card>

@@ -18,27 +18,27 @@ const AccountDetails = () => {
                         <Typography variant="h6" className="font-serif font-semibold"> Hesabınız </Typography>
                         <Button onClick={() => { setModalName('changePlan'); handleOpen() }} variant="text" className="flex items-center capitalize">
                             <CiSettings className="text-xl text-green-600" />
-                            <Typography variant="small" className="font-inter font-semibold text-green-600"> Planı Değiştir </Typography>
+                            <Typography variant="small" className="font-onest font-semibold text-green-600"> Planı Değiştir </Typography>
                         </Button>
                     </div>
                     <div className="bg-green-200/30 rounded-md p-4 flex flex-col">
-                        <Typography className="text-[12px] font-inter font-semibold"> Aktif Paketiniz </Typography>
-                        <Typography variant="h6" className="font-inter font-semibold"> {packetDetail.packetName} </Typography>
-                        <Typography className="text-[11px] font-inter "> Maksimum {packetDetail.maxUser} Kullanıcı Sayısı </Typography>
+                        <Typography className="text-[12px] font-onest font-semibold"> Aktif Paketiniz </Typography>
+                        <Typography variant="h6" className="font-onest font-semibold"> {packetDetail.packetName} </Typography>
+                        <Typography className="text-[11px] font-onest "> Maksimum {packetDetail.maxUser} Kullanıcı Sayısı </Typography>
                         <div className="p-2">
                             <hr className="border-t border-gray-400" />
                         </div>
                         <div className="flex justify-between">
-                            <Typography className="text-[12px] font-inter font-semibold"> Üyelik Tarihiniz </Typography>
-                            <Typography className="text-[12px] font-inter font-bold"> {packetDetail.membershipStartDate} </Typography>
+                            <Typography className="text-[12px] font-onest font-semibold"> Üyelik Tarihiniz </Typography>
+                            <Typography className="text-[12px] font-onest font-bold"> {packetDetail.membershipStartDate} </Typography>
                         </div>
                         <div className="flex justify-between">
-                            <Typography className="text-[12px] font-inter font-semibold"> Üyelik Bitiş Tarihiniz </Typography>
-                            <Typography className="text-[12px] font-inter font-bold"> {packetDetail.membershipEndDate} </Typography>
+                            <Typography className="text-[12px] font-onest font-semibold"> Üyelik Bitiş Tarihiniz </Typography>
+                            <Typography className="text-[12px] font-onest font-bold"> {packetDetail.membershipEndDate} </Typography>
                         </div>
                         <div className="flex justify-between">
-                            <Typography className="text-[12px] font-inter font-semibold"> Kullanılan <strong> 1 gün </strong> </Typography>
-                            <Typography className="text-[12px] font-inter font-bold"> Kalan <strong>29 gün</strong> </Typography>
+                            <Typography className="text-[12px] font-onest font-semibold"> Kullanılan <strong> 1 gün </strong> </Typography>
+                            <Typography className="text-[12px] font-onest font-bold"> Kalan <strong>29 gün</strong> </Typography>
                         </div>
                     </div>
                     <Button fullWidth className="bg-green-600 border-none capitalize mt-4 rounded-md">
@@ -51,14 +51,14 @@ const AccountDetails = () => {
                     <Typography variant="h6" className="font-serif font-semibold"> Ödeme Yöntemleri </Typography>
                     <div className="bg-green-200/20 rounded-md p-4 flex flex-col">
                         <div className="flex justify-between items-center p-2">
-                            <Typography variant="small" className="font-inter font-bold"> {packetDetail.paymentDetail.bank} </Typography>
+                            <Typography variant="small" className="font-onest font-bold"> {packetDetail.paymentDetail.bank} </Typography>
                             <IconButton variant="text">
                                 <MdDelete className="text-lg text-red-600" />
                             </IconButton>
                         </div>
                         <div className="flex justify-between items-center p-2">
-                            <Typography className="text-[12px] font-inter font-bold"> {packetDetail.paymentDetail.cartNumber} </Typography>
-                            <Typography className="text-[12px] font-inter font-bold"> {packetDetail.paymentDetail.expiryDate} </Typography>
+                            <Typography className="text-[12px] font-onest font-bold"> {packetDetail.paymentDetail.cartNumber} </Typography>
+                            <Typography className="text-[12px] font-onest font-bold"> {packetDetail.paymentDetail.expiryDate} </Typography>
                         </div>
                     </div>
                 </CardBody>
@@ -69,11 +69,11 @@ const AccountDetails = () => {
                         <Typography variant="h6" className="font-serif font-semibold"> Fatura Bilgileri </Typography>
                         <Button onClick={() => { setModalName('changeInvoice'); handleOpen() }} variant="text" className="flex items-center capitalize gap-1">
                             <CiSettings className="text-xl text-green-600 mt-[1px]" />
-                            <Typography variant="small" className="font-inter font-semibold text-green-600"> Düzenle </Typography>
+                            <Typography variant="small" className="font-onest font-semibold text-green-600"> Düzenle </Typography>
                         </Button>
                     </div>
                     <div className="border-b border-gray-600 mt-2">
-                        <Typography className="font-inter font-semibold"> {packetDetail.invoiceDetails.fullName} - {packetDetail.invoiceDetails.city} </Typography>
+                        <Typography className="font-onest font-semibold"> {packetDetail.invoiceDetails.fullName} - {packetDetail.invoiceDetails.city} </Typography>
                     </div>
                 </CardBody>
             </Card>

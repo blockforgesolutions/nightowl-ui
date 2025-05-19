@@ -1,7 +1,7 @@
 import { Button, DialogBody, DialogFooter, DialogHeader, IconButton, Input, Menu, MenuHandler, MenuItem, MenuList, Option, Select, Typography } from '@material-tailwind/react'
 import React from 'react'
 import { Roles, User } from '../../types/user'
-import { areas } from '../../mock_data'
+// import { areas } from '../../mock_data'
 import { CgClose } from 'react-icons/cg'
 
 interface UserFromProps {
@@ -30,15 +30,15 @@ const UserForm: React.FC<UserFromProps> = ({ user, handleOpen }) => {
         email: user?.email || "",
         phoneNumber: user?.phoneNumber || "",
     });
-    const [selectedAreas, setSelectedAreas] = React.useState<string[]>([]);
+    // const [selectedAreas, setSelectedAreas] = React.useState<string[]>([]);
 
-    const handleAreaToggle = (areaName: string) => {
-        if (selectedAreas.includes(areaName)) {
-            setSelectedAreas(selectedAreas.filter((area) => area !== areaName));
-        } else {
-            setSelectedAreas([...selectedAreas, areaName]);
-        }
-    };
+    // const handleAreaToggle = (areaName: string) => {
+    //     if (selectedAreas.includes(areaName)) {
+    //         setSelectedAreas(selectedAreas.filter((area) => area !== areaName));
+    //     } else {
+    //         setSelectedAreas([...selectedAreas, areaName]);
+    //     }
+    // };
 
     const handleInputChange = (field: keyof FormData, value: string) => {
         setFormData((prev) => ({ ...prev, [field]: value }));
@@ -49,21 +49,21 @@ const UserForm: React.FC<UserFromProps> = ({ user, handleOpen }) => {
         <div className='p-2'>
             <DialogHeader className='flex justify-between items-start'>
                 <div className='flex flex-col'>
-                    <Typography className='font-inter' variant='h5'>  {user ? "Kullanıcı Güncelle" : "Kullanıcı Ekle"}  </Typography>
-                    <Typography className='font-inter' variant='small'> {user ? "Güncellemek istediğiniz kullanıcının bilgilerini giriniz" : "Yeni eklemek  istediğiniz kullanıcının bilgilerini giriniz"} </Typography>
+                    <Typography className='font-onest' variant='h5'>  {user ? "Update User" : "Add User"}  </Typography>
+                    <Typography className='font-onest' variant='small'> {user ? "Enter the details of the user you want to update" : "Enter the details of the new user you want to add"} </Typography>
                 </div>
                 <IconButton variant='text' onClick={handleOpen}>
                     <CgClose className='text-xl text-red-600' />
                 </IconButton>
             </DialogHeader>
             <DialogBody className='flex flex-col'>
-                <Select label='Rol Seçiniz' value={formData ? formData.role : ""}>
+                <Select label='Select Role' value={formData ? formData.role : ""}>
                     {roles.map((role) => (
                         <Option> {role} </Option>
                     ))}
                 </Select>
                 <div className='flex gap-4 mt-4'>
-                    <Input onChange={(e) => handleInputChange("role", e.target.value)} label='Ad Soyad' defaultValue={formData ? formData.fullName : ""} type='text' crossOrigin={undefined} />
+                    <Input onChange={(e) => handleInputChange("role", e.target.value)} label='Full Name' defaultValue={formData ? formData.fullName : ""} type='text' crossOrigin={undefined} />
                     <Input label='Email' defaultValue={formData ? formData.email : ""} type='email' crossOrigin={undefined} />
                 </div>
                 <div className='flex gap-4 mt-4'>
@@ -104,9 +104,8 @@ const UserForm: React.FC<UserFromProps> = ({ user, handleOpen }) => {
                             defaultValue={formData ? formData.phoneNumber : ""}
                         />
                     </div>
-                    <Input label='Şifre' type='password' crossOrigin={undefined} />
                 </div>
-                <div className='mt-4'>
+                {/* <div className='mt-4'>
                     <Select
                         label="Bölge Seçiniz"
                         value={selectedAreas.join(', ')}
@@ -122,19 +121,19 @@ const UserForm: React.FC<UserFromProps> = ({ user, handleOpen }) => {
                             </Option>
                         ))}
                     </Select>
-                </div>
+                </div> */}
             </DialogBody>
             <DialogFooter>
                 <Button
                     variant="text"
                     color="red"
-                    className="mr-1 capitalize font-inter"
+                    className="mr-1 capitalize font-onest"
                     onClick={handleOpen}
                 >
-                    <span>İptal</span>
+                    <span>Cancel</span>
                 </Button>
-                <Button variant="gradient" color="green" className='font-inter capitalize' >
-                    <span> Kaydet </span>
+                <Button  className='font-onest capitalize bg-onBar text-gray-50' >
+                    <span> Save </span>
                 </Button>
             </DialogFooter>
         </div>

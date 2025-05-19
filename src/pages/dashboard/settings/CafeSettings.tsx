@@ -40,10 +40,10 @@ const CafeSettings = () => {
               <CiSettings className='text-4xl text-white' />
             </div>
             <div className='flex flex-col'>
-              <Typography className='font-inter font-semibold' variant='h6'>
+              <Typography className='font-onest font-semibold' variant='h6'>
                 Cafe Tanımlamaları
               </Typography>
-              <Typography variant="small" className='font-inter'> Restaurantınız ile ilgili tanımlamaları bu alandan yapabilirsiniz.
+              <Typography variant="small" className='font-onest'> Restaurantınız ile ilgili tanımlamaları bu alandan yapabilirsiniz.
               </Typography>
             </div>
           </div>
@@ -52,7 +52,7 @@ const CafeSettings = () => {
               // onClick={() => handleNewUserOpen()}
               variant="filled" fullWidth className="flex items-center capitalize bg-green-600 to-green-300 gap-2 shadow-none rounded-sm">
               <FiSave className="text-2xl" />
-              <Typography className="font-inter font-semibold"> Kaydet </Typography>
+              <Typography className="font-onest font-semibold"> Kaydet </Typography>
             </Button>
           </div>
         </div>
@@ -73,7 +73,7 @@ const CafeSettings = () => {
                   >
                     <Typography
                       variant='small'
-                      className="font-inter font-semibold tracking-wider"
+                      className="font-onest font-semibold tracking-wider"
                     >
                       {head.title}
                     </Typography>

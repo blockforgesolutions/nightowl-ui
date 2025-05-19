@@ -8,8 +8,8 @@ const Header = () => {
                 <IoPersonOutline className='text-4xl text-white' />
             </div>
             <div className='flex flex-col'>
-                <Typography variant='h5' className='font-inter'> Profil </Typography>
-                <Typography className='font-inter text-[12px]'> Kullanıcı bilgilerinizi güncelleyebilirsiniz.</Typography>
+                <Typography variant='h5' className='font-onest'> Profil </Typography>
+                <Typography className='font-onest text-[12px]'> Kullanıcı bilgilerinizi güncelleyebilirsiniz.</Typography>
             </div>
         </div>
     )

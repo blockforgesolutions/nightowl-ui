@@ -17,15 +17,15 @@ const UserAuthorize = () => {
                 <IoPersonOutline className="text-4xl text-white" />
               </div>
               <div className="flex flex-col">
-                <Typography variant="h6" className="font-inter font-semibold"> Yetkilendirme </Typography>
-                <Typography variant="small" className="font-inter"> Kullanıcılarınızın yetkilerini/izinlerini buradan güncelleyebilirsiniz</Typography>
+                <Typography variant="h6" className="font-onest font-semibold"> Yetkilendirme </Typography>
+                <Typography variant="small" className="font-onest"> Kullanıcılarınızın yetkilerini/izinlerini buradan güncelleyebilirsiniz</Typography>
               </div>
             </div>
             <div className="">
               <Button
                 variant="filled" fullWidth className="flex items-center capitalize bg-green-600 to-green-300 gap-2 shadow-none rounded-sm">
                 <IoAddOutline className="text-2xl" />
-                <Typography className="font-inter font-semibold"> Kaydet </Typography>
+                <Typography className="font-onest font-semibold"> Kaydet </Typography>
               </Button>
             </div>
           </div>
@@ -37,7 +37,7 @@ const UserAuthorize = () => {
                     <thead>
                       <tr>
                         <th className='w-2/4 p-4'>
-                          <Typography className='font-inter font-semibold'> {userAuthorization.title} </Typography>
+                          <Typography className='font-onest font-semibold'> {userAuthorization.title} </Typography>
                         </th>
                         {ROLES.map((head) => (
                           <th

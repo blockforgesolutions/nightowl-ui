@@ -14,7 +14,7 @@ const OrderNavbar: React.FC<OrderNavbarProps> = ({ order }) => {
         <Input
           type="text"
           placeholder="Ürün Adı ile Arama"
-          className="rounded-none  text-xl ring-4 ring-transparent placeholder:text-gray-800 placeholder:opacity-100 placeholder:text-xl placeholder:font-inter"
+          className="rounded-none  text-xl ring-4 ring-transparent placeholder:text-gray-800 placeholder:opacity-100 placeholder:text-xl placeholder:font-onest"
           labelProps={{
             className: "hidden",
           }}

@@ -54,7 +54,7 @@ const LangAreaSettings = () => {
         </div>
         <div className='flex justify-end mt-6 mr-6'>
           <Button className='px-8 py-2 capitalize bg-green-600 rounded-md'>
-            <Typography variant='h6' className='font-inter text-white'> Kaydet </Typography>
+            <Typography variant='h6' className='font-onest text-white'> Kaydet </Typography>
           </Button>
         </div>
       </Card>

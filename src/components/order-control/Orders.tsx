@@ -42,25 +42,25 @@ const Orders: React.FC<OrdersProps> = ({ orders }) => {
                         {orders.map((order) => (
                             <div key={order.id} className="w-full flex items-center lg:gap-2 gap-2 lg:p-2 border border-gray-400/50 rounded-lg mt-4">
                                 <div className="w-1/3 flex flex-col justify-center items-center gap-2 p-2">
-                                    <Typography className="text-red-500 font-bold font-inter" variant="small"> 01:25:00 </Typography>
+                                    <Typography className="text-red-500 font-bold font-onest" variant="small"> 01:25:00 </Typography>
                                     <div className="flex lg:mt-4 text-green-600 text-2xl">
                                         <BiDrink />
                                     </div>
                                 </div>
                                 <div className="w-full flex flex-col gap-4">
                                     <div className="w-full flex items-center justify-between gap-4">
-                                        <Typography variant="small" className="font-inter font-semibold"> Name : {order.user} </Typography>
-                                        <Typography variant="small" className="font-inter font-semibold"> #Order number </Typography>
+                                        <Typography variant="small" className="font-onest font-semibold"> Name : {order.user} </Typography>
+                                        <Typography variant="small" className="font-onest font-semibold"> #Order number </Typography>
                                     </div>
                                     <Divider height="2" color="gray" />
                                     <div className="w-full flex items-center justify-between">
-                                        <Typography variant="small" className="font-inter font-semibold"> Note: {order.note} </Typography>
+                                        <Typography variant="small" className="font-onest font-semibold"> Note: {order.note} </Typography>
                                     </div>
                                     <Divider height="2" color="gray" />
                                     <div className="flex items-center justify-between">
                                         <div>
                                             {orderTotals.map((total) => (
-                                                <Typography key={total.orderId} variant="h6" className="font-semibold font-inter">
+                                                <Typography key={total.orderId} variant="h6" className="font-semibold font-onest">
                                                     {order.id === total.orderId ? `€${total.total.toFixed(2)}` : ""}
                                                 </Typography>
                                             ))}
@@ -114,19 +114,19 @@ function ReadyOrders({ orders }: OrdersProps) {
             {orders.map((order) => (
                 <div key={order.id} className="w-full flex items-center lg:gap-2 gap-2 lg:p-2 border border-gray-400/50 rounded-lg mt-4">
                     <div className="w-1/3 flex flex-col justify-center items-center gap-2 p-2">
-                        <Typography className="text-red-500 font-bold font-inter" variant="small"> 01:25:00 </Typography>
+                        <Typography className="text-red-500 font-bold font-onest" variant="small"> 01:25:00 </Typography>
                         <div className="flex lg:mt-4 text-green-600 text-2xl">
                             <BiDrink />
                         </div>
                     </div>
                     <div className="w-full flex flex-col gap-4">
                         <div className="w-full flex items-center justify-between gap-4">
-                            <Typography variant="small" className="font-inter font-semibold"> Name : {order.user} </Typography>
-                            <Typography variant="small" className="font-inter font-semibold"> #Order number </Typography>
+                            <Typography variant="small" className="font-onest font-semibold"> Name : {order.user} </Typography>
+                            <Typography variant="small" className="font-onest font-semibold"> #Order number </Typography>
                         </div>
                         <Divider height="2" color="gray" />
                         <div className="w-full flex items-center justify-between">
-                            <Typography variant="small" className="font-inter font-semibold"> Note: {order.note} </Typography>
+                            <Typography variant="small" className="font-onest font-semibold"> Note: {order.note} </Typography>
                         </div>
                         <Divider height="2" color="gray" />
                         <div className="flex items-center justify-between">

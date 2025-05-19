@@ -33,13 +33,13 @@ const Products: React.FC<ProductsProps> = ({ categoryId }) => {
                         </div>
                         <CardBody className='flex flex-col'>
                             <div className='flex flex-col justify-center items-center'>
-                                <Typography className='text-center font-inter font-semibold'>
+                                <Typography className='text-center font-onest font-semibold'>
                                     {product.name}
                                 </Typography>
-                                <Typography variant='small' className='font-inter'> {product.unit} </Typography>
+                                <Typography variant='small' className='font-onest'> {product.unit} </Typography>
                             </div>
                             <div className='mt-2'>
-                                <Typography variant='h6' className='text-green-600 font-inter'> ₺{product.price.toFixed(2)} </Typography>
+                                <Typography variant='h6' className='text-green-600 font-onest'> ₺{product.price.toFixed(2)} </Typography>
                             </div>
                         </CardBody>
                     </Card>

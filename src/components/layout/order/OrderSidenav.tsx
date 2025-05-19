@@ -20,15 +20,15 @@ const OrderSidenav: React.FC<OrderSidenavProps> = ({ order, totalAmount, tableId
                     <Link to={'/dashboard/orders'}>
                         <FaAngleLeft className="text-xl text-white" />
                     </Link>
-                    <Typography className="font-inter font-semibold text-white" variant="h6"> {tableId} </Typography>
+                    <Typography className="font-onest font-semibold text-white" variant="h6"> {tableId} </Typography>
                 </div>
             </div>
             <div className="flex flex-col flex-grow p-2">
                 <div className="flex items-center justify-between">
-                    <Typography className="font-inter text-[12px] font-semibold"> Adisyon: Adisyon No </Typography>
-                    <Typography className="font-inter text-[12px] flex items-center font-semibold">
+                    <Typography className="font-onest text-[12px] font-semibold"> Adisyon: Adisyon No </Typography>
+                    <Typography className="font-onest text-[12px] flex items-center font-semibold">
                         Sipariş Durumu :
-                        <Typography className="font-inter text-[12px] font-semibold text-green-600"> {order?.status} </Typography>
+                        <Typography className="font-onest text-[12px] font-semibold text-green-600"> {order?.status} </Typography>
                     </Typography>
                 </div>
                 <div className="w-full flex flex-col lg:mt-4">
@@ -39,16 +39,16 @@ const OrderSidenav: React.FC<OrderSidenavProps> = ({ order, totalAmount, tableId
                                 <div className="w-full flex justify-between items-center">
                                     <div className="flex gap-4">
                                         <div className="flex justify-center items-center">
-                                            <Typography className="font-inter font-semibold p-3 bg-gray-400/50 rounded-md" variant="small">
+                                            <Typography className="font-onest font-semibold p-3 bg-gray-400/50 rounded-md" variant="small">
                                                 {item.quantity}
                                             </Typography>
                                         </div>
                                         <div>
-                                            <Typography variant="small" className="font-inter font-semibold">
+                                            <Typography variant="small" className="font-onest font-semibold">
                                                 {product?.name || "Ürün Bulunamadı"}
                                             </Typography>
-                                            <Typography className="text-[12px] font-inter"> Adet </Typography>
-                                            <Typography className="text-[12px] font-inter"> username </Typography>
+                                            <Typography className="text-[12px] font-onest"> Adet </Typography>
+                                            <Typography className="text-[12px] font-onest"> username </Typography>
                                         </div>
                                     </div>
                                     <div className="flex gap-4 items-center">
@@ -71,13 +71,13 @@ const OrderSidenav: React.FC<OrderSidenavProps> = ({ order, totalAmount, tableId
                     <Typography className="font-serif text-gray-600 font-semibold"> ₺{totalAmount?.toFixed(2)} </Typography>
                 </div>
                 <div className="flex gap-2 p-2 justify-center">
-                    <Button className="bg-green-600 shadow-sm shadow-gray-600 rounded-sm font-inter">
+                    <Button className="bg-green-600 shadow-sm shadow-gray-600 rounded-sm font-onest">
                         ÖDE ₺{totalAmount?.toFixed(2)}
                     </Button>
-                    <Button className="bg-green-600 shadow-sm shadow-gray-600 rounded-sm font-inter">
+                    <Button className="bg-green-600 shadow-sm shadow-gray-600 rounded-sm font-onest">
                         Hızlı ÖDE ₺{totalAmount?.toFixed(2)}
                     </Button>
-                    <Button className="bg-red-600 shadow-sm shadow-gray-600 rounded-sm font-inter">
+                    <Button className="bg-red-600 shadow-sm shadow-gray-600 rounded-sm font-onest">
                         Kaydet
                     </Button>
                 </div>

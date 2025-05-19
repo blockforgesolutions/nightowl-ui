@@ -63,8 +63,8 @@ const CategoryProducts: React.FC<CategoryProductsProps> = ({ categoryId, order, 
                     <Card key={product.id} className="cursor-pointer h-auto flex" onClick={(e) => handleCardClick(e,product.id) }>
                         <CardBody className="flex justify-between items-center">
                             <div className="flex flex-col lg:space-y-8">
-                                <Typography className="font-inter mt-2 font-semibold"> {product.name} </Typography>
-                                <Typography className="font-inter mt-2 font-semibold"> ₺{product.price.toFixed(2)} </Typography>
+                                <Typography className="font-onest mt-2 font-semibold"> {product.name} </Typography>
+                                <Typography className="font-onest mt-2 font-semibold"> ₺{product.price.toFixed(2)} </Typography>
                             </div>
                             {order && (
                                 <div className="flex flex-col items-center shadow-sm rounded-xl shadow-gray-600">
@@ -74,7 +74,7 @@ const CategoryProducts: React.FC<CategoryProductsProps> = ({ categoryId, order, 
                                                 <FiPlus className="text-lg" />
                                             </IconButton>
                                             <div key={item.productId} className="bg-green-600 w-full flex items-center justify-center">
-                                                <Typography className="font-inter text-white"> {product.id === item.productId ? item.quantity : ""} </Typography>
+                                                <Typography className="font-onest text-white"> {product.id === item.productId ? item.quantity : ""} </Typography>
                                             </div>
                                             <IconButton variant="text" className={`${product.id === item.productId ? "flex" : "hidden"}`} onClick={(e) => handleRemoveProduct(e, product.id)}>
                                                 <FiMinus className="text-lg" />

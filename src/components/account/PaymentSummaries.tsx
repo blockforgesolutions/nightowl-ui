@@ -28,7 +28,7 @@ const PaymentSummaries = () => {
                 <tr key={i}>
                   <td className={classes}>
                     <div className="w-28">
-                      <Typography variant="small" className={`p-2 rounded-full font-inter text-white ${payment.status === 'Onaylandı' ? 'bg-green-600' : 'bg-red-600'}`}> {payment.status} </Typography>
+                      <Typography variant="small" className={`p-2 rounded-full font-onest text-white ${payment.status === 'Onaylandı' ? 'bg-green-600' : 'bg-red-600'}`}> {payment.status} </Typography>
                     </div>
                   </td>
                   <td className={classes}>
