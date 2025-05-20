@@ -9,7 +9,7 @@ const ProductTopbar = () => {
                 <div className="ml-2 md:w-96">
                     <Input
                         type="text"
-                        placeholder="Ürün Adı ile Arama"
+                        placeholder="Search product..."
                         className="!border !border-gray-300 bg-white text-gray-900 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 "
                         labelProps={{
                             className: "hidden",
@@ -24,7 +24,7 @@ const ProductTopbar = () => {
                 // onClick={() => handleOperationClick(opr)}
                 >
                     <MdLibraryAdd className="text-2xl text-green-600" />
-                    <Typography className="font-semibold font-serif" variant="small"> Ürün Ekle </Typography>
+                    <Typography className="font-semibold font-serif" variant="small"> New Product </Typography>
                 </Link>
             </div>
         </div>

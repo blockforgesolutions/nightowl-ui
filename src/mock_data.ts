@@ -95,104 +95,29 @@ export const areas = [
 export const categories = [
     {
         id: 1,
-        title: "Çaylar",
+        title: "Tea",
         color: 'green'
     },
     {
         id: 2,
-        title: "Sıcak İçecekler",
+        title: "Hot Drinks",
         color: 'red'
     },
     {
         id: 3,
-        title: "Kahveler",
+        title: "Ice Drinks",
         color: 'brown'
     },
     {
         id: 4,
-        title: "Soğuk İçecekler",
+        title: "Alcoholic Drinks",
         color: 'aqua'
     },
     {
         id: 5,
-        title: "Tatlılar",
+        title: "Other Drinks",
         color: 'pink'
     },
-    {
-        id: 6,
-        title: "Aperatifler",
-        color: 'orange'
-    },
-    {
-        id: 7,
-        title: "Ana Yemekler",
-        color: 'yellow'
-    },
-    {
-        id: 8,
-        title: "Atıştırmalıklar",
-        color: 'purple'
-    },
-    {
-        id: 9,
-        title: "Dondurmalar",
-        color: 'lightblue'
-    },
-    {
-        id: 10,
-        title: "İçecekler",
-        color: 'teal'
-    },
-    {
-        id: 11,
-        title: "Alkolsüz İçecekler",
-        color: 'lightgreen'
-    },
-    {
-        id: 12,
-        title: "Alkol İçkiler",
-        color: 'darkred'
-    },
-    {
-        id: 13,
-        title: "Meyveler",
-        color: 'orange'
-    },
-    {
-        id: 14,
-        title: "Sebzeler",
-        color: 'green'
-    },
-    {
-        id: 15,
-        title: "Ekmek ve Ürünleri",
-        color: 'wheat'
-    },
-    {
-        id: 16,
-        title: "Pizza ve Makarna",
-        color: 'tomato'
-    },
-    {
-        id: 17,
-        title: "Süt Ürünleri",
-        color: 'lightyellow'
-    },
-    {
-        id: 18,
-        title: "Beyaz Et",
-        color: 'lightpink'
-    },
-    {
-        id: 19,
-        title: "Kırmızı Et",
-        color: 'darkred'
-    },
-    {
-        id: 20,
-        title: "Deniz Ürünleri",
-        color: 'skyblue'
-    }
 ];
 
 
@@ -200,7 +125,7 @@ export const products = [
     {
         id: 1,
         categoryId: 1,
-        name: "Çay",
+        name: "Tea",
         price: 20.00,
         unit: "Adet"
     },

@@ -7,7 +7,6 @@ import Products from "../../../components/product/Products";
 
 const Product = () => {
   const [currentCategory, setCurrentCategory] = useState(categories[0].id || 1)
-  console.log(currentCategory);
 
   return (
     <div className='w-full flex'>

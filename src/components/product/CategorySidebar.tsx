@@ -14,11 +14,11 @@ interface CategorySidebarProps {
 
 const CategorySidebar: React.FC<CategorySidebarProps> = ({ categories, setCurrentCategory, currentCategory }) => {
     return (
-        <div className="w-full h-screen flex flex-col border lg:mt-2 rounded-sm">
+        <div className="w-full sticky h-screen flex flex-col border border-onBar/50 lg:mt-2 rounded-lg">
             <div className="w-full p-1 flex justify-between items-center">
                 <Button className="flex gap-1 capitalize items-center" variant="text">
                     <TbCategoryPlus className="text-xl" />
-                    <Typography variant="h6" className="font-onest"> Kategori Ekle </Typography>
+                    <Typography variant="h6" className="font-onest"> Add Category </Typography>
                 </Button>
                 <div className="lg:mr-2">
                     <Menu>
