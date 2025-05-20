@@ -3,29 +3,29 @@ import { IoAddOutline, IoPersonOutline } from 'react-icons/io5';
 import { Roles } from '../../../types/user';
 import { userAuthorizations } from '../../../types/user-authorizations';
 
-const ROLES: Roles[] = [Roles.CHECKOUT, Roles.KITCHEN, Roles.MANAGER, Roles.WAITER]
+const ROLES: Roles[] = [Roles.CHECKOUT, Roles.OWNER, Roles.MANAGER, Roles.WAITER]
 
 
 const UserAuthorize = () => {
   return (
     <div>
-      <div className="w-full h-screen flex justify-center mt-">
-        <div className=" lg:w-11/12  bg-white p-12 flex flex-col">
+      <div className="w-full flex justify-center mt-4 ">
+        <div className=" lg:w-11/12  bg-white p-12 flex flex-col rounded-md">
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-4">
               <div className="p-6 bg-gradient-to-b from-green-600 to-green-300 rounded-xl">
                 <IoPersonOutline className="text-4xl text-white" />
               </div>
               <div className="flex flex-col">
-                <Typography variant="h6" className="font-onest font-semibold"> Yetkilendirme </Typography>
-                <Typography variant="small" className="font-onest"> Kullanıcılarınızın yetkilerini/izinlerini buradan güncelleyebilirsiniz</Typography>
+                <Typography variant="h6" className="font-onest font-semibold"> Authorization </Typography>
+                <Typography variant="small" className="font-onest"> You can update your users' authorizations/permissions here </Typography>
               </div>
             </div>
             <div className="">
               <Button
                 variant="filled" fullWidth className="flex items-center capitalize bg-green-600 to-green-300 gap-2 shadow-none rounded-sm">
                 <IoAddOutline className="text-2xl" />
-                <Typography className="font-onest font-semibold"> Kaydet </Typography>
+                <Typography className="font-onest font-semibold"> Save </Typography>
               </Button>
             </div>
           </div>

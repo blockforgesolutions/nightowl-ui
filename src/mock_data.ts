@@ -256,8 +256,8 @@ export const users = [
 
 export const companyInfo = {
     title: "Fibonacci",
-    dayStart: "10:00",
-    dayEnd: "23:59",
+    dayStart: "04:00 pm",
+    dayEnd: "05:00 pm",
     notificationSound: ["Ses 1", "Ses 2"],
     workType: WorkType.TABLE_ORDER,
     socketAdress: "0",
@@ -274,7 +274,7 @@ export const companyInfo = {
 }
 
 export const paymentTypes = [
-    "Nakit", "Kredi Kartı", "Diğer"
+    "Cash", "Credit Card", "Debit Card", "Installment", "Online Payment"
 ]
 
 export const mockDailyData = {

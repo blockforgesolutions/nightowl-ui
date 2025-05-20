@@ -7,9 +7,9 @@ const PaymentSettings = () => {
   return (
     <div className="w-full flex flex-col p-4">
       <div className="flex justify-between items-center">
-        <Typography className="font-onest" color="black" variant="h6"> Kullanılan Ödeme Tipleri </Typography>
+        <Typography className="font-onest" color="black" variant="h6"> Payment Types Used </Typography>
         <Button variant="text" className="capitalize">
-          <Typography variant="small" className="font-onest font-semibold text-green-600"> Ödeme Tiplerini Düzenle </Typography>
+          <Typography variant="small" className="font-onest font-semibold text-green-600"> Edit Payment Types </Typography>
         </Button>
       </div>
       <hr />

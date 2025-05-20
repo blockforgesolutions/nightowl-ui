@@ -12,17 +12,17 @@ const CafeSettings = () => {
 
   const TAB_DATA = [
     {
-      title: 'Genel Ayarlar',
+      title: 'General Settings',
       value: 'general-settings',
       element: <GeneralSettings company={companyInfo} />
     },
     {
-      title: "Ödeme Ayaları",
+      title: "Payment Settings",
       value: 'payment-settings',
       element: <PaymentSettings />
     },
     {
-      title: 'Adres Bilgileri',
+      title: 'Address Information',
       value: 'address-information',
       element: <AddressInformation company={companyInfo} />
     }
@@ -41,9 +41,9 @@ const CafeSettings = () => {
             </div>
             <div className='flex flex-col'>
               <Typography className='font-onest font-semibold' variant='h6'>
-                Cafe Tanımlamaları
+                Cafe Definitions
               </Typography>
-              <Typography variant="small" className='font-onest'> Restaurantınız ile ilgili tanımlamaları bu alandan yapabilirsiniz.
+              <Typography variant="small" className='font-onest'> You can make definitions related to the Club from this field.
               </Typography>
             </div>
           </div>
@@ -52,7 +52,7 @@ const CafeSettings = () => {
               // onClick={() => handleNewUserOpen()}
               variant="filled" fullWidth className="flex items-center capitalize bg-green-600 to-green-300 gap-2 shadow-none rounded-sm">
               <FiSave className="text-2xl" />
-              <Typography className="font-onest font-semibold"> Kaydet </Typography>
+              <Typography className="font-onest font-semibold"> Save </Typography>
             </Button>
           </div>
         </div>
@@ -68,7 +68,7 @@ const CafeSettings = () => {
                 {TAB_DATA.map((head, i) => (
                   <Tab value={head.value} key={i}
                     onClick={() => setActiveTab(head.value)}
-                    className={`lg:w-32 transition-all duration-300 ease-in-out ${activeTab === head.value ? "text-gray-800 font-bold" : "text-gray-400"
+                    className={`lg:w-64 transition-all duration-300 ease-in-out ${activeTab === head.value ? "text-gray-800 font-bold" : "text-gray-400"
                       }`}
                   >
                     <Typography
