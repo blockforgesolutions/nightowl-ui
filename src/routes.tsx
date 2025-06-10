@@ -19,6 +19,8 @@ import QRHome from "./pages/qr-menu/Home";
 import { MainRoute, SubRoute } from "./types/route";
 import Profile from "./pages/dashboard/Profile";
 import Account from "./pages/dashboard/Account";
+import CoatCheck from "./pages/dashboard/CoatCheck";
+import { ListChecks } from "lucide-react";
 
 
 type Route = MainRoute | SubRoute;
@@ -31,10 +33,11 @@ export const routes: { layout: 'dashboard' | 'auth' | 'qr-menu'; title?: string,
             {
                 icon: <IoHomeOutline />,
                 name: 'Dashboard',
-                path: '/home',
+                path: 'home',
                 element: <Home />,
                 isAnotherLayout: false,
-                onSidenav: true
+                onSidenav: true,
+                roles: ['manager']
             },
             {
                 icon: <TbShoppingBagCheck />,
@@ -42,7 +45,17 @@ export const routes: { layout: 'dashboard' | 'auth' | 'qr-menu'; title?: string,
                 path: '/orders',
                 element: <OrderControl />,
                 isAnotherLayout: false,
-                onSidenav: true
+                onSidenav: true,
+                roles: ['manager', 'waiter', 'cashier', 'barmen']
+            },
+            {
+                icon: <ListChecks />,
+                name: 'Coat Check',
+                path: '/coat-check',
+                element: <CoatCheck />,
+                isAnotherLayout: false,
+                onSidenav: true,
+                roles: ['manager', 'waiter', 'cashier', 'barmen']
             },
             {
                 icon: <GiForkKnifeSpoon />,
@@ -50,7 +63,8 @@ export const routes: { layout: 'dashboard' | 'auth' | 'qr-menu'; title?: string,
                 path: '/products',
                 element: <Product />,
                 isAnotherLayout: false,
-                onSidenav: true
+                onSidenav: true,
+                roles: ['manager', 'waiter', 'cashier', 'barmen']
             },
             {
                 icon: <IoPersonOutline />,
@@ -60,15 +74,18 @@ export const routes: { layout: 'dashboard' | 'auth' | 'qr-menu'; title?: string,
                         icon: <IoPersonOutline />,
                         name: "users",
                         path: '/persons',
-                        element: <Person />
+                        element: <Person />,
+                        roles: ['manager']
                     },
                     {
                         icon: <MdOutlineSecurity />,
                         name: "Authorization",
                         path: '/authorize',
-                        element: <Authorize />
+                        element: <Authorize />,
+                        roles: ['manager']
                     },
                 ],
+                roles: ['manager'],
                 onSidenav: true
             },
             {
@@ -76,7 +93,8 @@ export const routes: { layout: 'dashboard' | 'auth' | 'qr-menu'; title?: string,
                 name: 'Reports',
                 path: '/analytics',
                 element: <Analytic />,
-                onSidenav: true
+                onSidenav: true,
+                roles: ['manager']
             },
             {
                 icon: <CiSettings />,
@@ -86,9 +104,11 @@ export const routes: { layout: 'dashboard' | 'auth' | 'qr-menu'; title?: string,
                         icon: <GrCafeteria />,
                         name: 'Club Settings',
                         path: '/cafe-settings',
-                        element: <CafeSettings />
+                        element: <CafeSettings />,
+                        roles: ['manager']
                     },
                 ],
+                roles: ['manager'],
                 onSidenav: true
             },
             {
