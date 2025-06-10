@@ -1,24 +1,37 @@
 import { Button, Checkbox, Input, Typography } from "@material-tailwind/react"
-import { useState } from "react"
-import { login } from "../../api/auth.api"
+import { useEffect, useState } from "react"
+import { employeeLogin } from "../../api/auth"
 import { useNavigate } from "react-router-dom"
 import Snackbar from "../../components/SnackBar"
+import { EmployeeAuthResponse } from "../../types/auth"
+import { useUser } from "../../context/user-context"
 
 const SignIn = () => {
-    const [emailOrPhoneNumber, setEmailOrPhoneNumber] = useState<string>('')
+    const [email, setEmail] = useState<string>('')
     const [password, setPassword] = useState<string>('')
     const [error, SetError] = useState<string>('')
     const [snackbarOpen, setSnackbarOpen] = useState<boolean>(false);
     const navigate = useNavigate()
+    const { user, setUser } = useUser();
+
+    useEffect(() => {
+        if (user) {
+            navigate('/dashboard/home');
+        }
+    }, [user, navigate]);
 
     const handleSubmit = async () => {
-        const data = await login({ emailOrPhoneNumber, password });
-        if (data.success && (data.data?.access_token && data.data.refresh_token)) {
-            localStorage.setItem('access_token', data.data?.access_token)
-            localStorage.setItem('refresh_token', data.data?.refresh_token)
-            navigate('/dashboard')
+        const data = await employeeLogin({ email, password }) as EmployeeAuthResponse;
+        console.log(data);
+        
+        if (data.access_token && data.refresh_token) {
+            localStorage.setItem('access_token', data.access_token)
+            localStorage.setItem('refresh_token', data.refresh_token)
+            setUser(data.user)
+            navigate('/dashboard/home')
+
         } else {
-            SetError('Email or Phone Number or Password is incorrect')
+            SetError('Email or Password is incorrect')
             setSnackbarOpen(true);
         }
     }
@@ -29,23 +42,23 @@ const SignIn = () => {
                 <div className="lg:w-2/3 flex flex-col justify-center items-center">
                     <form className="mt-8 mb-2 mx-auto w-80 max-w-screen-lg lg:w-1/2">
                         <div className="text-start">
-                            <Typography variant="h3" className="font-bold ">Orderly'e Hoşgeldiniz</Typography>
-                            <Typography variant="paragraph" className="text-md text-gray-700 font-normal">Lütfen üyelik bilgileriniz ile giriş yapınız</Typography>
+                            <Typography variant="h3" className="font-bold ">Welcome to Nightowl</Typography>
+                            <Typography variant="paragraph" className="text-md text-gray-700 font-normal">Please login with your details</Typography>
                         </div>
                         <div className="mb-1 flex flex-col gap-6 lg:mt-8">
                             <Typography variant="small" color="blue-gray" className="-mb-3 font-medium">
-                                E-Posta Adresi veya Telefon Numarası
+                                Email
                             </Typography>
                             <Input
-                                onChange={(e) => setEmailOrPhoneNumber(e.target.value)}
+                                onChange={(e) => setEmail(e.target.value)}
                                 size="lg"
-                                placeholder="e-posta@mail.com | 5552223344"
+                                placeholder="johndoe@gmail.com | 5552223344"
                                 className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
                                 labelProps={{
                                     className: "before:content-none after:content-none",
                                 }} crossOrigin={undefined} />
                             <Typography variant="small" color="blue-gray" className="-mb-3 font-medium">
-                                Şifre
+                                Password
                             </Typography>
                             <Input
                                 onChange={(e) => setPassword(e.target.value)}
@@ -64,17 +77,17 @@ const SignIn = () => {
                                     color="gray"
                                     className="flex items-center justify-start font-medium"
                                 >
-                                    Beni Hatırla
+                                    Remember me
                                 </Typography>}
                                 containerProps={{ className: "-ml-2.5" }} crossOrigin={undefined} />
                             <Typography variant="small" className="font-medium text-gray-900">
                                 <a href="#" className="underline">
-                                    Şifremi Unuttum?
+                                    Forgot Password
                                 </a>
                             </Typography>
                         </div>
                         <Button onClick={handleSubmit} className="mt-6 capitalize p-3 text-lg rounded-2xl bg-blue-700" fullWidth>
-                            Giriş Yap
+                            Sign in
                         </Button>
                     </form>
                 </div>
