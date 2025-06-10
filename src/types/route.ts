@@ -5,6 +5,7 @@ export interface RouteBase {
     icon?: ReactElement;
     name: string;
     onSidenav?: boolean
+    roles?: string[]
 }
 
 export interface MainRoute extends RouteBase {
@@ -22,6 +23,7 @@ export interface SubRoute extends RouteBase {
         path: string;
         element: ReactElement;
         title?: string
+        roles?: string[]
     }[];
     path?: undefined;
     element?: undefined;
