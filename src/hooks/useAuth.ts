@@ -5,6 +5,7 @@ import { Employee } from "../types/employee";
 
 interface AuthReturn {
   user: Employee | null;
+  setUser: (user: Employee | null) => void;
   isLoading: boolean;
   isAuthenticated: boolean;
   logout: () => void;
@@ -33,6 +34,7 @@ export const useAuth = (): AuthReturn => {
   return {
     user,
     isLoading,
+    setUser,
     isAuthenticated,
     logout,
     login,

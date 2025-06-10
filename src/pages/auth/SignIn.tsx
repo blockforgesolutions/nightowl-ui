@@ -4,35 +4,54 @@ import { employeeLogin } from "../../api/auth"
 import { useNavigate } from "react-router-dom"
 import Snackbar from "../../components/SnackBar"
 import { EmployeeAuthResponse } from "../../types/auth"
-import { useUser } from "../../context/user-context"
+import { useAuth } from "../../hooks/useAuth"
 
 const SignIn = () => {
     const [email, setEmail] = useState<string>('')
     const [password, setPassword] = useState<string>('')
     const [error, SetError] = useState<string>('')
     const [snackbarOpen, setSnackbarOpen] = useState<boolean>(false);
+    const [loading, setLoading] = useState<boolean>(false);
     const navigate = useNavigate()
-    const { user, setUser } = useUser();
+    const { user, setUser, refreshUserData } = useAuth();
 
     useEffect(() => {
         if (user) {
             navigate('/dashboard/home');
         }
-    }, [user, navigate]);
+    }, [user]);
 
-    const handleSubmit = async () => {
-        const data = await employeeLogin({ email, password }) as EmployeeAuthResponse;
-        console.log(data);
-        
-        if (data.access_token && data.refresh_token) {
-            localStorage.setItem('access_token', data.access_token)
-            localStorage.setItem('refresh_token', data.refresh_token)
-            setUser(data.user)
-            navigate('/dashboard/home')
+    const handleSubmit = async (e?: React.FormEvent) => {
+        if (e) e.preventDefault();
 
-        } else {
-            SetError('Email or Password is incorrect')
+        if (!email || !password) {
+            SetError('Please fill in all fields')
             setSnackbarOpen(true);
+            return;
+        }
+
+        setLoading(true);
+
+        try {
+            const data = await employeeLogin({ email, password }) as EmployeeAuthResponse;
+
+            if (data?.access_token && data?.refresh_token) {
+                localStorage.setItem('access_token', data.access_token)
+                localStorage.setItem('refresh_token', data.refresh_token)
+
+                setUser(data.user)
+
+                await refreshUserData();
+            } else {
+                SetError('Email or Password is incorrect')
+                setSnackbarOpen(true);
+            }
+        } catch (error) {
+            console.error('Login error:', error);
+            SetError('An error occurred during login')
+            setSnackbarOpen(true);
+        } finally {
+            setLoading(false);
         }
     }
 
@@ -40,7 +59,7 @@ const SignIn = () => {
         <section className="flex gap-4">
             <div className="w-full flex flex-col items-center justify-center lg:w-3/5 mt-24">
                 <div className="lg:w-2/3 flex flex-col justify-center items-center">
-                    <form className="mt-8 mb-2 mx-auto w-80 max-w-screen-lg lg:w-1/2">
+                    <form onSubmit={handleSubmit} className="mt-8 mb-2 mx-auto w-80 max-w-screen-lg lg:w-1/2">
                         <div className="text-start">
                             <Typography variant="h3" className="font-bold ">Welcome to Nightowl</Typography>
                             <Typography variant="paragraph" className="text-md text-gray-700 font-normal">Please login with your details</Typography>
@@ -51,24 +70,32 @@ const SignIn = () => {
                             </Typography>
                             <Input
                                 onChange={(e) => setEmail(e.target.value)}
+                                value={email}
                                 size="lg"
                                 placeholder="johndoe@gmail.com | 5552223344"
                                 className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
                                 labelProps={{
                                     className: "before:content-none after:content-none",
-                                }} crossOrigin={undefined} />
+                                }}
+                                crossOrigin={undefined}
+                                disabled={loading}
+                            />
                             <Typography variant="small" color="blue-gray" className="-mb-3 font-medium">
                                 Password
                             </Typography>
                             <Input
                                 onChange={(e) => setPassword(e.target.value)}
+                                value={password}
                                 type="password"
                                 size="lg"
                                 placeholder="********"
                                 className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
                                 labelProps={{
                                     className: "before:content-none after:content-none",
-                                }} crossOrigin={undefined} />
+                                }}
+                                crossOrigin={undefined}
+                                disabled={loading}
+                            />
                         </div>
                         <div className="flex items-center justify-between gap-2 mt-6">
                             <Checkbox
@@ -79,15 +106,22 @@ const SignIn = () => {
                                 >
                                     Remember me
                                 </Typography>}
-                                containerProps={{ className: "-ml-2.5" }} crossOrigin={undefined} />
+                                containerProps={{ className: "-ml-2.5" }}
+                                crossOrigin={undefined}
+                            />
                             <Typography variant="small" className="font-medium text-gray-900">
                                 <a href="#" className="underline">
                                     Forgot Password
                                 </a>
                             </Typography>
                         </div>
-                        <Button onClick={handleSubmit} className="mt-6 capitalize p-3 text-lg rounded-2xl bg-blue-700" fullWidth>
-                            Sign in
+                        <Button
+                            type="submit"
+                            className="mt-6 capitalize p-3 text-lg rounded-2xl bg-blue-700"
+                            fullWidth
+                            disabled={loading}
+                        >
+                            {loading ? 'Signing in...' : 'Sign in'}
                         </Button>
                     </form>
                 </div>

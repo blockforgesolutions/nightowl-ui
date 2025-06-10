@@ -50,6 +50,22 @@ export const ChartSkeleton = () => (
     </CardSkeleton>
 );
 
+export const ListCardSkeleton = () => (
+        <div className="flex gap-4">
+            {Array.from({ length: 4 }).map((_, i) => (
+                <CardSkeleton className='w-64 h-32 flex'>
+                    <div key={i} className="flex items-center space-x-3">
+                        <SkeletonBox className="h-8 w-8 rounded-full flex-shrink-0" />
+                        <div className="flex-1">
+                            <SkeletonBox className="h-5 w-32 mb-2" />
+                            <SkeletonBox className="h-4 w-24" />
+                        </div>
+                    </div>
+                </CardSkeleton>
+            ))}
+        </div>
+);
+
 export const TableSkeleton = () => (
     <CardSkeleton>
         <SkeletonBox className="h-6 w-40 mb-4" />

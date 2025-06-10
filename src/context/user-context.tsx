@@ -37,8 +37,6 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
     try {
       setIsLoading(true);
       const userData = await currentUser();
-      console.log(userData);
-
       setUser(userData);
     } catch (error) {
       console.log(error);

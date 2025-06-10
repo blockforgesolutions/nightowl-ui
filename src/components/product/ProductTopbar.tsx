@@ -1,8 +1,51 @@
-import { Input, Typography } from '@material-tailwind/react'
+import { Button, Dialog, Input, Typography } from '@material-tailwind/react'
+import { useState } from 'react';
 import { MdLibraryAdd } from "react-icons/md";
-import { Link } from 'react-router-dom';
+import { Employee } from '../../types/employee';
+import ProductForm from './ProductForm';
+import { Category } from '../../types/category';
 
-const ProductTopbar = () => {
+interface ProductTopbarProps {
+    user: Employee,
+    categories: Category[]
+    onProductSaved?: () => void
+}
+
+const ProductTopbar = ({ user,categories, onProductSaved }: ProductTopbarProps) => {
+    const [modalOpen, setModalOpen] = useState(false);
+    const [modalType, setModalType] = useState<"new" | "update">("new");
+
+    // const handleUpdatePeroductModal = (product: Product) => {
+    //     setSelectedProduct(product);
+    //     setModalType("update");
+    //     setModalOpen(true);
+    // }
+
+    const handleNewProductOpen = () => {
+        setModalType("new");
+        setModalOpen(true);
+    }
+
+    const handleCloseModal = () => {
+        setModalOpen(false);
+        setModalType("new");
+    }
+
+    const renderModal = () => {
+        if (!modalOpen) return null;
+
+        switch (modalType) {
+            case "new":
+                return (
+                    <Dialog open={modalOpen} handler={handleCloseModal}>
+                        <ProductForm handleOpen={handleCloseModal} club={user.club.id} categories={categories} onProductSaved={onProductSaved} />
+                    </Dialog>
+                );
+            default:
+                return null;
+        }
+    }
+
     return (
         <div className='w-full p-2 flex justify-between items-center'>
             <div>
@@ -20,13 +63,15 @@ const ProductTopbar = () => {
                 </div>
             </div>
             <div>
-                <Link to={""} className="lg:mr-4 flex fonti gap-1 items-center justify-center capitalize bg-transparent text-gray-700 shadow-none"
-                // onClick={() => handleOperationClick(opr)}
+                <Button className="lg:mr-4 flex fonti gap-1 items-center justify-center capitalize bg-transparent text-gray-700 shadow-none"
+                    onClick={handleNewProductOpen}
                 >
                     <MdLibraryAdd className="text-2xl text-green-600" />
                     <Typography className="font-semibold font-serif" variant="small"> New Product </Typography>
-                </Link>
+                </Button>
             </div>
+
+            {renderModal()}
         </div>
     )
 }

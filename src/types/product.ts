@@ -1,8 +1,13 @@
+import { Category } from "./category";
+import { Club } from "./club";
 
 export interface Product {
-    id: number,
-    categoryId: number,
+    id: string,
+    category: Category,
     name: string,
     price: number,
     unit: string
+    club: Club
+    createdAt: string
+    updatedAt: string
 }

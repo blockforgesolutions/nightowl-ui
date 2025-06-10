@@ -19,7 +19,7 @@ interface FormData {
     areas?: string[]
 }
 
-const roles: Roles[] = [Roles.CHECKOUT, Roles.KITCHEN, Roles.MANAGER, Roles.WAITER]
+const roles: Roles[] = [Roles.CHECKOUT,   Roles.MANAGER, Roles.WAITER]
 const CODES = ["+90", "+49", "+34", "+1"];
 
 

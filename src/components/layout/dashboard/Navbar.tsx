@@ -20,7 +20,7 @@ const Navbar = () => {
     .find((route: any) => route.path?.slice(1) === page);
 
 
-  const { user, isLoading } = useAuth();
+  const { user, isLoading, logout } = useAuth();
 
   if (isLoading) return <NavItemSkeleton />
 
@@ -142,7 +142,7 @@ const Navbar = () => {
                   <div>
                     <hr />
                   </div>
-                  <MenuItem className='flex items-center gap-2'>
+                  <MenuItem className='flex items-center gap-2' onClick={logout}>
                     <BiLogOut className='text-lg' />
                     <Typography className='font-onest'> Logout </Typography>
                   </MenuItem>

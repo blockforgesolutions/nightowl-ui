@@ -1,4 +1,5 @@
 export interface Club {
+    id:string
     name: string,
     dayStart: string,
     dayEnd: string,
