@@ -1,7 +1,14 @@
+import { Employee } from "./employee"
+import { User } from "./user"
+
 export interface AuthResponse {
-    success: boolean,
-    data: {
-        access_token:string,
-        refresh_token:string
-    }
+    access_token: string,
+    refresh_token: string
+    user:User
+}
+
+export interface EmployeeAuthResponse {
+    access_token: string
+    refresh_token: string
+    user: Employee
 }
