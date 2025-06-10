@@ -131,14 +131,14 @@ const Charts: React.FC<ChartsProps> = ({ header, content, chartConfig, type, hei
             >
                 <div>
                     <Typography variant='small' className='font-onest font-semibold'>
-                        {header}
+                        {header || ""}
                     </Typography>
                     <Typography
                         variant="small"
                         color="gray"
                         className="max-w-sm font-normal"
                     >
-                        {content}
+                        {content || ""}
                     </Typography>
                 </div>
             </CardHeader>
