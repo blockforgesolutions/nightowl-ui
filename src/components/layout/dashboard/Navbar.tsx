@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Avatar, Breadcrumbs, Button, IconButton, Menu, MenuHandler, MenuItem, MenuList, Navbar as MtNavbar, Typography } from '@material-tailwind/react'
+import { Avatar, Breadcrumbs, Button, Menu, MenuHandler, MenuItem, MenuList, Navbar as MtNavbar, Typography } from '@material-tailwind/react'
 import { Link, useLocation } from 'react-router-dom'
 import routes from '../../../routes';
 import { IoPersonOutline, IoShareSocial } from 'react-icons/io5';
-import { users } from '../../../mock_data';
 import { MdOutlineManageAccounts } from "react-icons/md";
 import { BiLogOut } from "react-icons/bi";
+import { useAuth } from '../../../hooks/useAuth';
+import { NavItemSkeleton } from '../../loading';
 
 
 
@@ -19,7 +20,10 @@ const Navbar = () => {
     .find((route: any) => route.path?.slice(1) === page);
 
 
-  const user = users[0]
+  const { user, isLoading } = useAuth();
+
+  if (isLoading) return <NavItemSkeleton />
+
   return (
     <MtNavbar
       className={` transition-all sticky top-0 z-40 py-3 bg-nav rounded-xl`}
@@ -35,14 +39,14 @@ const Navbar = () => {
                 variant="small"
                 className="font-normal text-white opacity-100 transition-all"
               >
-                {route?.title}
+                {route?.title || ""}
               </Typography>
             </Link>
             <Typography
               variant="small"
               className="font-normal text-white"
             >
-              {pageName?.name}
+              {pageName?.name || ""} 
             </Typography>
           </Breadcrumbs>
         </div>
@@ -51,11 +55,11 @@ const Navbar = () => {
             <input type="search" name="search" id="search" className='bg-white rounded-lg px-4 py-1 w-full text-gray-900' placeholder='Search...' />
           </div>
           <Menu>
-            <MenuHandler>
+            {/* <MenuHandler>
               <IconButton variant="text" className='text-white'>
                 bell
               </IconButton>
-            </MenuHandler>
+            </MenuHandler> */}
             <MenuList className="w-max border-0">
               <MenuItem className="flex items-center gap-3">
                 <Avatar
@@ -91,11 +95,11 @@ const Navbar = () => {
                     className="flex items-center capitalize gap-2 bg-onBar rounded-2xl"
                   >
                     <IoPersonOutline className='text-xl' />
-                    <Typography className='font-onest font-semibold' variant='small'> {user.fullName} </Typography>
+                    <Typography className='font-onest font-semibold' variant='small'> {user && user.fullName} </Typography>
                   </Button>
                 </MenuHandler>
                 <MenuList className='px-6 rounded-sm'>
-                  <Typography className='font-onest font-semibold' variant='small'> {user.fullName} </Typography>
+                  <Typography className='font-onest font-semibold' variant='small'> {user && user.fullName} </Typography>
                   <MenuItem className='mt-1'>
                     <Link to={`/dashboard/profile`} className='flex gap-2 items-center'>
                       <IoPersonOutline className='text-lg' />
